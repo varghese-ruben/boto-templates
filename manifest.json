@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": 1,
+  "updatedAt": "2026-06-09T00:00:00Z",
+  "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
+
+  "categories": [
+    {
+      "id": "cinematic",
+      "displayName": "Cinematic",
+      "tintHex": "#7A5C40",
+      "sortOrder": 100
+    },
+    {
+      "id": "street",
+      "displayName": "Street",
+      "tintHex": "#5A6B78",
+      "sortOrder": 110
+    }
+  ],
+
+  "templates": [
+    {
+      "id": "cinematic_neon",
+      "version": 1,
+      "category": "cinematic",
+      "name": "Neon Cinematic",
+      "hint": "Tungsten city signs, mixed colored light. Steady your hand.",
+      "image": "images/tpl_cinematic_neon.jpg",
+      "capture": {
+        "cameraPosition": "back",
+        "exposure": { "type": "auto", "biasEV": 0.0 },
+        "whiteBalanceKelvin": 3200,
+        "tint": -4,
+        "focus": { "type": "continuousAuto" },
+        "wantsDepth": false
+      },
+      "processing": {
+        "warmth": -0.15,
+        "saturation": 1.18,
+        "contrast": 1.12,
+        "softenHighlights": 0,
+        "shadowLift": 0.20,
+        "clarity": 0.22,
+        "depthBlurRadius": 0,
+        "vignette": 0.30,
+        "grain": 0.22
+      }
+    },
+    {
+      "id": "cinematic_anamorphic",
+      "version": 1,
+      "category": "cinematic",
+      "name": "Anamorphic Dream",
+      "hint": "Warm pull on highlights, soft midtones. Best in window light.",
+      "image": "images/tpl_cinematic_anamorphic.jpg",
+      "capture": {
+        "cameraPosition": "back",
+        "exposure": { "type": "auto", "biasEV": -0.2 },
+        "whiteBalanceKelvin": 4600,
+        "tint": 4,
+        "focus": { "type": "continuousAuto" },
+        "wantsDepth": false
+      },
+      "processing": {
+        "warmth": 0.15,
+        "saturation": 0.95,
+        "contrast": 1.08,
+        "softenHighlights": 0.20,
+        "shadowLift": 0.10,
+        "clarity": 0.12,
+        "depthBlurRadius": 0,
+        "vignette": 0.22,
+        "grain": 0.10
+      }
+    },
+    {
+      "id": "street_neon_night",
+      "version": 1,
+      "category": "street",
+      "name": "Neon Night Street",
+      "hint": "Tokyo / Hong Kong vibes — sodium and neon signs.",
+      "image": "images/tpl_street_neon_night.jpg",
+      "capture": {
+        "cameraPosition": "back",
+        "exposure": { "type": "auto", "biasEV": 0.2 },
+        "whiteBalanceKelvin": 3400,
+        "tint": 0,
+        "focus": { "type": "continuousAuto" },
+        "wantsDepth": false
+      },
+      "processing": {
+        "warmth": -0.05,
+        "saturation": 1.22,
+        "contrast": 1.10,
+        "softenHighlights": 0,
+        "shadowLift": 0.25,
+        "clarity": 0.18,
+        "depthBlurRadius": 0,
+        "vignette": 0.20,
+        "grain": 0.15
+      }
+    },
+    {
+      "id": "street_daylight",
+      "version": 1,
+      "category": "street",
+      "name": "Daylight Street",
+      "hint": "Sunlit candid shots — keep the shutter snappy.",
+      "image": "images/tpl_street_daylight.jpg",
+      "capture": {
+        "cameraPosition": "back",
+        "exposure": { "type": "auto", "biasEV": 0.0 },
+        "whiteBalanceKelvin": 5500,
+        "tint": 0,
+        "focus": { "type": "continuousAuto" },
+        "wantsDepth": false
+      },
+      "processing": {
+        "warmth": 0.05,
+        "saturation": 1.08,
+        "contrast": 1.06,
+        "softenHighlights": 0,
+        "shadowLift": 0.08,
+        "clarity": 0.15,
+        "depthBlurRadius": 0,
+        "vignette": 0.10,
+        "grain": 0.08
+      }
+    },
+    {
+      "id": "portrait_studio_pro",
+      "version": 1,
+      "category": "portraits",
+      "name": "Studio Pro",
+      "hint": "Plain backdrop, even key light, subject 1.5 m away.",
+      "image": "images/tpl_portrait_studio_pro.jpg",
+      "capture": {
+        "cameraPosition": "back",
+        "exposure": { "type": "auto", "biasEV": 0.3 },
+        "whiteBalanceKelvin": 5400,
+        "tint": 2,
+        "focus": { "type": "continuousAuto" },
+        "wantsDepth": true
+      },
+      "processing": {
+        "warmth": 0.08,
+        "saturation": 1.00,
+        "contrast": 1.03,
+        "softenHighlights": 0.30,
+        "shadowLift": 0.05,
+        "clarity": 0.10,
+        "depthBlurRadius": 14,
+        "vignette": 0.10,
+        "grain": 0
+      }
+    }
+  ]
+}
