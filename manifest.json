@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 1,
-  "manifestVersion": 1,
-  "updatedAt": "2026-06-09T00:00:00Z",
+  "schemaVersion": 2,
+  "manifestVersion": 2,
+  "updatedAt": "2026-06-09T10:00:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
   "categories": [
@@ -27,6 +27,33 @@
       "name": "Neon Cinematic",
       "hint": "Tungsten city signs, mixed colored light. Steady your hand.",
       "image": "images/tpl_cinematic_neon.jpg",
+      "capture": {
+        "cameraPosition": "back",
+        "exposure": { "type": "auto", "biasEV": 0.0 },
+        "whiteBalanceKelvin": 3200,
+        "tint": -4,
+        "focus": { "type": "continuousAuto" },
+        "wantsDepth": false
+      },
+      "processing": {
+        "warmth": -0.15,
+        "saturation": 1.18,
+        "contrast": 1.12,
+        "softenHighlights": 0,
+        "shadowLift": 0.20,
+        "clarity": 0.22,
+        "depthBlurRadius": 0,
+        "vignette": 0.30,
+        "grain": 0.22
+      }
+    },
+        {
+      "id": "cinematic_abstract",
+      "version": 1,
+      "category": "cinematic",
+      "name": "Abstract Cinematic",
+      "hint": "Plain backdrop, even key light, subject 1.5 m away.",
+      "image": "images/tpl_abstract_fluid.jpg",
       "capture": {
         "cameraPosition": "back",
         "exposure": { "type": "auto", "biasEV": 0.0 },
