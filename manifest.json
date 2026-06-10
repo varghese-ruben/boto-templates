@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestVersion": 2,
+  "manifestVersion": 3,
   "updatedAt": "2026-06-09T10:00:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
@@ -162,6 +162,33 @@
       "name": "Studio Pro",
       "hint": "Plain backdrop, even key light, subject 1.5 m away.",
       "image": "images/tpl_portrait_studio_pro.jpg",
+      "capture": {
+        "cameraPosition": "back",
+        "exposure": { "type": "auto", "biasEV": 0.3 },
+        "whiteBalanceKelvin": 5400,
+        "tint": 2,
+        "focus": { "type": "continuousAuto" },
+        "wantsDepth": true
+      },
+      "processing": {
+        "warmth": 0.08,
+        "saturation": 1.00,
+        "contrast": 1.03,
+        "softenHighlights": 0.30,
+        "shadowLift": 0.05,
+        "clarity": 0.10,
+        "depthBlurRadius": 14,
+        "vignette": 0.10,
+        "grain": 0
+      }
+    },
+        {
+      "id": "portrait_abstract_geometric",
+      "version": 1,
+      "category": "portraits",
+      "name": "Abstract Pro",
+      "hint": "Plain backdrop, even key light, subject 1.5 m away.",
+      "image": "images/tpl_abstract_geometric.jpg",
       "capture": {
         "cameraPosition": "back",
         "exposure": { "type": "auto", "biasEV": 0.3 },
