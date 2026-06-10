@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "manifestVersion": 5,
-  "updatedAt": "2026-06-09T10:00:00Z",
+  "manifestVersion": 6,
+  "updatedAt": "2026-06-09T10:05:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
   "categories": [
@@ -16,6 +16,12 @@
       "displayName": "Street",
       "tintHex": "#5A6B78",
       "sortOrder": 110
+    },
+    {
+      "id": "free_place_holder",
+      "displayName": "Free Place Holder",
+      "tintHex": "#9E9E9E",
+      "sortOrder": 120
     }
   ],
 
