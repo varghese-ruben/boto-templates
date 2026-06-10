@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestVersion": 4,
+  "manifestVersion": 5,
   "updatedAt": "2026-06-09T10:00:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
@@ -185,7 +185,7 @@
         {
       "id": "portrait_abstract_geometric",
       "version": 1,
-      "category": "Street",
+      "category": "street",
       "name": "Abstract Pro",
       "hint": "Plain backdrop, even key light, subject 1.5 m away.",
       "image": "images/tpl_abstract_geometric.jpg",
