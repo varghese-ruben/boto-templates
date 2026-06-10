@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestVersion": 6,
+  "manifestVersion": 7,
   "updatedAt": "2026-06-09T10:05:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
@@ -16,12 +16,6 @@
       "displayName": "Street",
       "tintHex": "#5A6B78",
       "sortOrder": 110
-    },
-    {
-      "id": "free_place_holder",
-      "displayName": "Free Place Holder",
-      "tintHex": "#9E9E9E",
-      "sortOrder": 120
     }
   ],
 
@@ -33,33 +27,6 @@
       "name": "Neon Cinematic",
       "hint": "Tungsten city signs, mixed colored light. Steady your hand.",
       "image": "images/tpl_cinematic_neon.jpg",
-      "capture": {
-        "cameraPosition": "back",
-        "exposure": { "type": "auto", "biasEV": 0.0 },
-        "whiteBalanceKelvin": 3200,
-        "tint": -4,
-        "focus": { "type": "continuousAuto" },
-        "wantsDepth": false
-      },
-      "processing": {
-        "warmth": -0.15,
-        "saturation": 1.18,
-        "contrast": 1.12,
-        "softenHighlights": 0,
-        "shadowLift": 0.20,
-        "clarity": 0.22,
-        "depthBlurRadius": 0,
-        "vignette": 0.30,
-        "grain": 0.22
-      }
-    },
-        {
-      "id": "cinematic_abstract",
-      "version": 1,
-      "category": "cinematic",
-      "name": "Abstract Cinematic",
-      "hint": "Plain backdrop, even key light, subject 1.5 m away.",
-      "image": "images/tpl_abstract_fluid.jpg",
       "capture": {
         "cameraPosition": "back",
         "exposure": { "type": "auto", "biasEV": 0.0 },
@@ -168,33 +135,6 @@
       "name": "Studio Pro",
       "hint": "Plain backdrop, even key light, subject 1.5 m away.",
       "image": "images/tpl_portrait_studio_pro.jpg",
-      "capture": {
-        "cameraPosition": "back",
-        "exposure": { "type": "auto", "biasEV": 0.3 },
-        "whiteBalanceKelvin": 5400,
-        "tint": 2,
-        "focus": { "type": "continuousAuto" },
-        "wantsDepth": true
-      },
-      "processing": {
-        "warmth": 0.08,
-        "saturation": 1.00,
-        "contrast": 1.03,
-        "softenHighlights": 0.30,
-        "shadowLift": 0.05,
-        "clarity": 0.10,
-        "depthBlurRadius": 14,
-        "vignette": 0.10,
-        "grain": 0
-      }
-    },
-        {
-      "id": "portrait_abstract_geometric",
-      "version": 1,
-      "category": "street",
-      "name": "Abstract Pro",
-      "hint": "Plain backdrop, even key light, subject 1.5 m away.",
-      "image": "images/tpl_abstract_geometric.jpg",
       "capture": {
         "cameraPosition": "back",
         "exposure": { "type": "auto", "biasEV": 0.3 },
