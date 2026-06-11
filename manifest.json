@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestVersion": 7,
+  "manifestVersion": 8,
   "updatedAt": "2026-06-09T10:05:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
