@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestVersion": 9,
+  "manifestVersion": 10,
   "updatedAt": "2026-06-09T10:05:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
@@ -19,9 +19,10 @@
     }
   ],
   "announcement": {
-      "id": "2026-q3-newapp-launch",
+      "id": "2026-q3-newapp-launch-001",
       "title": "Boto Studio is live",
       "body": "Our new Mac app is out — same templates, bigger canvas.",
+      "imageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/images/announcement_studio.jpg",
       "ctaURL": "https://apps.apple.com/",
       "ctaLabel": "Check it out",
       "startDate": "2026-06-11",
