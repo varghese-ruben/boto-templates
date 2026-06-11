@@ -1,64 +1,56 @@
 # Boto Templates
 
-Community-driven photo recipes for the [Boto Camera](https://github.com/varghese-ruben/BotoCamera) iOS app.
+Remote photo recipes for the [Boto Camera](https://github.com/varghese-ruben/BotoCamera) iOS app.
 
-Every template is a small piece of JSON that tells Boto:
-1. **How to set the camera at capture time** (exposure, white balance, focus, camera position…).
-2. **How to grade the photo afterwards** (warmth, contrast, vignette, grain…).
+This repository is the **first-party content delivery channel** for Boto Camera. The app fetches `manifest.json` from this repo at launch (via [jsDelivr](https://www.jsdelivr.com/)), caches it locally, and merges these recipes with the templates built into the app binary. Everything here ships authored, reviewed, and maintained by the Boto Camera developer — there is no public submission process, no third-party content, and no user-generated content surfaced through this manifest.
 
-The app fetches `manifest.json` from this repo at launch, caches it locally, and merges these recipes with the templates built into the app. Images are served via [jsDelivr](https://www.jsdelivr.com/), which is a free CDN in front of GitHub — fast and free.
+If you've found this repo because you're curious how Boto's remote catalog works, read on. If you're hoping to submit a template, this isn't open to public contributions today.
 
 ---
 
-## Submitting a new template
+## Why deliver templates remotely?
 
-1. **Fork this repo.**
-2. **Add your sample image** to `images/` (see [Image guidelines](#image-guidelines) below).
-3. **Add an entry to `manifest.json`** under `templates: [...]` (see [Template schema](#template-schema)).
-4. **Bump `manifestVersion`** at the top of `manifest.json` by one and set `updatedAt` to the current UTC time.
-5. **Open a Pull Request.**
+Bundling every template into the app would mean a full App Store update each time a recipe is tweaked or a new look is added. By serving templates from this repo, the app can:
 
-If your PR is merged, the Boto app will pick up the new template within an hour for every user, on next launch.
+- Pick up new looks without forcing users to update.
+- Iterate on a recipe (warmth, contrast, grain, etc.) and ship the fix the same day.
+- Keep the app binary small by streaming sample images on demand.
 
-## Adding a new category
+The remote catalog is **additive**: every template in the app is also bundled in some form, so the app remains fully usable offline using the built-in catalog.
 
-If your template doesn't fit any of the existing categories, add a new one:
+---
 
-1. Add an entry to `categories: [...]` in `manifest.json`.
-2. Reference its `id` from your template's `category` field.
-
-```jsonc
-"categories": [
-  {
-    "id": "lo-fi",              // lowercase, dash-separated
-    "displayName": "Lo-Fi",     // shown in the UI
-    "tintHex": "#9B7B4A",       // accent color for the section
-    "sortOrder": 200             // higher = further down the list
-  }
-]
-```
-
-## Image guidelines
-
-- **Format:** `.jpg` (preferred) or `.png`.
-- **Dimensions:** 1024×1024 square, or 4:3 / 3:2 landscape up to 1600px on the long edge.
-- **File size:** under **300 KB**. Compress before committing — jsDelivr caches forever.
-- **Path:** `images/tpl_<your_template_id>.jpg`.
-- **Subject:** ideally a real photograph that *demonstrates the look* your template produces. Avoid screenshots or watermarks.
-
-The app composes the final image URL as `baseImageURL + image`, so the example below resolves to:
+## What lives in this repo
 
 ```
-https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/images/tpl_cinematic_neon.jpg
+manifest.json     # the catalog the app reads
+images/           # sample images referenced by each template
 ```
+
+Every template is a small piece of JSON that tells Boto:
+
+1. **How to set the camera at capture time** (exposure, white balance, focus, camera position…).
+2. **How to grade the photo afterwards** (warmth, contrast, vignette, grain…).
+
+See [Template schema](#template-schema) below for the wire format.
+
+---
+
+## How releases reach users
+
+There's no manual deploy step — the app polls `manifest.json` from this repo through jsDelivr's CDN. Cache TTL on jsDelivr is ~12 hours for `@main`, so changes go live to all users within that window. For instant pushes, the app's **Settings → "Refresh templates"** forces a fresh fetch.
+
+The app never uploads anything to this repo. The data flow is one-way: GitHub → jsDelivr → app cache → user.
+
+---
 
 ## Template schema
 
 ```jsonc
 {
   "id": "cinematic_neon",        // unique, lowercase, snake_case
-  "version": 1,                   // bump when you change the template
-  "category": "cinematic",        // category id (built-in or custom)
+  "version": 1,                   // bump when the template changes
+  "category": "cinematic",        // category id (built-in or declared in this manifest)
   "name": "Neon Cinematic",       // shown on the card
   "hint": "Tungsten city signs…", // one-line shooting tip, optional
   "image": "images/tpl_cinematic_neon.jpg",
@@ -94,9 +86,9 @@ https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/images/tpl_cinema
 }
 ```
 
-### Built-in category IDs
+### Categories
 
-You can extend any of the categories built into the app by setting `"category"` to one of these:
+A template references a category by `id`. The app ships with these built-in categories:
 
 | ID          | Display name |
 |-------------|--------------|
@@ -106,17 +98,57 @@ You can extend any of the categories built into the app by setting `"category"` 
 | `product`   | Product      |
 | `animals`   | Animals      |
 
+New categories can be declared in `manifest.json` under `categories: [...]`:
+
+```jsonc
+"categories": [
+  {
+    "id": "lo-fi",
+    "displayName": "Lo-Fi",
+    "tintHex": "#9B7B4A",
+    "sortOrder": 200
+  }
+]
+```
+
+---
+
+## Image guidelines
+
+- **Format:** `.jpg` (preferred) or `.png`.
+- **Dimensions:** 1024×1024 square, or 4:3 / 3:2 landscape up to 1600px on the long edge.
+- **File size:** under **300 KB**. jsDelivr caches forever, so commit the compressed file.
+- **Path:** `images/tpl_<template_id>.jpg`.
+- **Rights:** every sample image in this repo is original photography by the Boto Camera developer.
+
+The app composes the final image URL as `baseImageURL + image`, so the example below resolves to:
+
+```
+https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/images/tpl_cinematic_neon.jpg
+```
+
+---
+
 ## Updating an existing template
 
 1. Edit its entry in `manifest.json`.
 2. **Bump that template's `version`** by one — this forces the app to invalidate its cached sample image.
 3. **Bump the top-level `manifestVersion`** by one.
-4. Update `updatedAt`.
-5. Open a PR.
+4. Update `updatedAt` to the current UTC time.
+5. Commit to `main` — jsDelivr will pick it up within the cache TTL.
+
+## Adding a new template
+
+1. Add the sample image to `images/` per [Image guidelines](#image-guidelines).
+2. Append a new entry to `templates: [...]` in `manifest.json` per [Template schema](#template-schema).
+3. Bump `manifestVersion` and update `updatedAt`.
+4. Commit to `main`.
+
+---
 
 ## Safety rules the app enforces
 
-Submissions go through a public review process, but the app also validates and clamps every numeric field before it touches the camera. Templates that fall outside these ranges are rejected silently:
+The app validates and clamps every numeric field before it touches the camera. Values that fall outside these ranges are clamped silently (not rejected), so a typo in this repo degrades gracefully rather than crashing the app:
 
 | Field                 | Allowed range |
 |-----------------------|---------------|
@@ -132,10 +164,18 @@ Submissions go through a public review process, but the app also validates and c
 | `softenHighlights`, `shadowLift`, `clarity`, `vignette`, `grain` | `0 … 1` |
 | `depthBlurRadius`     | `0 … 20`      |
 
-## How releases reach users
+Image URLs are also restricted to HTTPS — plain `http://` references in the manifest are dropped.
 
-There's no manual deploy — the app polls `manifest.json` from this repo through jsDelivr's CDN. Cache TTL on jsDelivr is ~12 hours for `@main`, so changes go live to all users within that window. For instant pushes, the app's Settings → "Refresh templates" forces a fresh fetch.
+---
+
+## Contributions
+
+This repository is **not open to public template submissions** at this time. All templates are authored by the Boto Camera developer. Issues and pull requests targeting documentation fixes or bug reports are welcome; PRs proposing new templates or sample images will be closed.
+
+If you'd like to suggest a look you'd love to see in the app, open an issue describing the scene, the mood, and the kind of light it works in.
+
+---
 
 ## License
 
-The JSON in this repo is MIT licensed. Image submissions remain the copyright of their creators, who grant the Boto project a non-exclusive right to ship them as in-app sample artwork. By submitting a PR you confirm you have rights to the image you're contributing.
+The JSON in this repo is MIT licensed. Sample images in `images/` are copyright their photographer (the Boto Camera developer) and are licensed for use only as in-app sample artwork within Boto Camera.
