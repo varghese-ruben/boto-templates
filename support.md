@@ -4,7 +4,7 @@ Need help with Boto? You're in the right place.
 
 ## Get in touch
 
-The fastest way to reach us is by email: **{{SUPPORT_EMAIL}}**
+The fastest way to reach us is by raising a support request - [Submit](https://forms.gle/huZt7ssiDjeF3QoB7)
 
 When you write in, please include:
 
