@@ -56,6 +56,6 @@ If we ever change how Boto works in a way that affects this policy, we will upda
 
 ## Contact
 
-Questions, concerns, or requests related to this policy: Raising a request [here.](https://forms.gle/huZt7ssiDjeF3QoB7)
+Questions, concerns, or requests related to this policy: Raise a request [here.](https://forms.gle/huZt7ssiDjeF3QoB7)
 
 We do our best to respond within a few business days.
