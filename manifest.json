@@ -18,7 +18,15 @@
       "sortOrder": 110
     }
   ],
-
+  "announcement": {
+      "id": "2026-q3-newapp-launch",
+      "title": "Boto Studio is live",
+      "body": "Our new Mac app is out — same templates, bigger canvas.",
+      "ctaURL": "https://apps.apple.com/",
+      "ctaLabel": "Check it out",
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-15"
+    },
   "templates": [
     {
       "id": "cinematic_neon",
