@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestVersion": 8,
+  "manifestVersion": 9,
   "updatedAt": "2026-06-09T10:05:00Z",
   "baseImageURL": "https://cdn.jsdelivr.net/gh/varghese-ruben/boto-templates@main/",
 
@@ -24,8 +24,8 @@
       "body": "Our new Mac app is out — same templates, bigger canvas.",
       "ctaURL": "https://apps.apple.com/",
       "ctaLabel": "Check it out",
-      "startDate": "2026-08-01",
-      "endDate": "2026-08-15"
+      "startDate": "2026-06-11",
+      "endDate": "2026-07-02"
     },
   "templates": [
     {
